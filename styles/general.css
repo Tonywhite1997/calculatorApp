@@ -21,7 +21,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 2em;
+  gap: 1em;
 }
 
 .main__input__result, .main__input__parameters {
@@ -32,13 +32,19 @@
   color: #ffffff;
   border: none;
   font-size: 2rem;
+  color: #51ed51;
+}
+
+.main__input__parameters {
+  color: white;
 }
 
 .main__input i {
   position: absolute;
-  right: .5em;
-  bottom: .1em;
+  right: 1em;
+  bottom: .5em;
   color: #317831;
+  font-size: 1.7rem;
 }
 
 .main__section {

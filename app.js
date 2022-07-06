@@ -9,20 +9,16 @@ const clearBtn = document.querySelector(".clear")
 const deleteBtn = document.querySelector(".fa-delete-left")
 
 
-let calculatedResult;
-
 keys.forEach((key)=>{
     key.addEventListener("click", function(){
         let {value} = this.dataset;
-        inputField.value += value;
-        // let finalNumber = parseInt(inputField.value)
-        // calculatedResult = finalNumber
+        inputField.value += value.toLocaleString();
     })
 })
 
 euqaulBtn.addEventListener("click", ()=>{
     console.log(inputField.value);
-    resultField.value = eval(inputField.value);
+    resultField.value = eval(inputField.value).toLocaleString();
 })
 
 clearBtn.addEventListener("click", ()=>{

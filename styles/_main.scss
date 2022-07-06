@@ -15,7 +15,7 @@
         height: 40%;
         border-bottom: 1px solid $primarybclr;
         @include flex(column);
-        gap: 2em;
+        gap: 1em;
 
         &__result{
             height: 60px;
@@ -25,17 +25,20 @@
             color: $regularclr;
             border: none;
             font-size: 2rem;
+            color: $primaryclr;
         }
 
         &__parameters{
             @extend .main__input__result;
+            color: white;
         }
 
         i{
             position: absolute;
-            right: .5em;
-            bottom: .1em;
+            right: 1em;
+            bottom: .5em;
             color: $darkgreen;
+            font-size: 1.7rem;
         }
     }
 

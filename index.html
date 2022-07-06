@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <link rel="stylesheet" href="styles/general.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <main class="main">
+        <div class="main__input">
+            <input type="text" readonly class="main__input__result">
+            <input type="text" readonly class="main__input__parameters">
+            <i class="fa-solid fa-delete-left"></i>
+        </div>
+
+        <section class="main__section">
+            <h3 class="main__section__key pink clear" data-value="clear">C</h3>
+            <h3 class="main__section__key green key" data-value="()">()</h3>
+            <h3 class="main__section__key green key" data-value="%">%</h3>
+            <h3 class="main__section__key green key" data-value="/">&#247;</h3>
+            <h3 class="main__section__key key" data-value="7">7</h3>
+            <h3 class="main__section__key key" data-value="8">8</h3>
+            <h3 class="main__section__key key" data-value="9">9</h3>
+            <h3 class="main__section__key green key" data-value="*">&#215</h3>
+            <h3 class="main__section__key key" data-value="4">4</h3>
+            <h3 class="main__section__key key" data-value="5">5</h3>
+            <h3 class="main__section__key key" data-value="6">6</h3>
+            <h3 class="main__section__key green key" data-value="-">-</h3>
+            <h3 class="main__section__key key" data-value="1">1</h3>
+            <h3 class="main__section__key key" data-value="2">2</h3>
+            <h3 class="main__section__key key" data-value="3">3</h3>
+            <h3 class="main__section__key green key" data-value="+">+</h3>
+            <h3 class="main__section__key key" data-value="0">0</h3>
+            <h3 class="main__section__key green key" data-value="^">^</h3>
+            <h3 class="main__section__key green key" data-value=".">.</h3>
+            <h3 class="main__section__key green equals__to" data-value="=">=</h3>
+        </section>
+    </main>
+
+
+    <script src="app.js"></script>
+</body>
+</html>

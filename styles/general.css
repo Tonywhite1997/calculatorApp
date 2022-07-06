@@ -1,0 +1,124 @@
+.main {
+  width: 60%;
+  height: 80%;
+  background-color: #000000;
+}
+
+.main__input {
+  position: relative;
+  height: 40%;
+  border-bottom: 1px solid #242323;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 2em;
+}
+
+.main__input__result, .main__input__parameters {
+  height: 60px;
+  width: 100%;
+  padding: 0 1em;
+  background-color: transparent;
+  color: #ffffff;
+  border: none;
+  font-size: 2rem;
+}
+
+.main__input i {
+  position: absolute;
+  right: .5em;
+  bottom: .1em;
+  color: #317831;
+}
+
+.main__section {
+  padding-top: 2em;
+  height: 60%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50px)[4];
+      grid-template-columns: repeat(4, 50px);
+  place-content: center;
+  gap: 1em;
+}
+
+.main__section__key {
+  background: #242323;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  height: 50px;
+  width: 50px;
+  border-radius: 100%;
+  font-size: 1.5rem;
+}
+
+.main__section .pink {
+  color: #f55525;
+}
+
+.main__section .green {
+  color: #51ed51;
+}
+
+.main__section .equals__to {
+  background-color: #51ed51;
+  color: #000000;
+}
+
+@media screen and (max-width: 700px) {
+  .main {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+html {
+  height: -webkit-fill-available;
+}
+
+body {
+  height: 100vh;
+  height: -webkit-fill-available;
+  font-size: 16px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+/*# sourceMappingURL=general.css.map */

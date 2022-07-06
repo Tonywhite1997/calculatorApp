@@ -15,15 +15,14 @@ keys.forEach((key)=>{
     key.addEventListener("click", function(){
         let {value} = this.dataset;
         inputField.value += value;
-        let finalNumber = parseInt(inputField.value)
-        calculatedResult = finalNumber
+        // let finalNumber = parseInt(inputField.value)
+        // calculatedResult = finalNumber
     })
 })
 
 euqaulBtn.addEventListener("click", ()=>{
     console.log(inputField.value);
-    console.log(calculatedResult > 30);
-    resultField.value = calculatedResult;
+    resultField.value = eval(inputField.value);
 })
 
 clearBtn.addEventListener("click", ()=>{
@@ -38,6 +37,5 @@ deleteBtn.addEventListener("click", ()=>{
     for(number of afterDeleteOp){
         inputValue = afterDeleteOp.join("")
     }
-    let backToNumber = parseInt(inputValue)
-    inputField.value = backToNumber;
+    inputField.value = inputValue;
 })

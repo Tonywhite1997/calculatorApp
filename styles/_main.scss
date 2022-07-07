@@ -82,6 +82,9 @@
         .equals__to{
             background-color: $primaryclr;
             color: $backgroundclr;
+            width: 120px;
+            height: 60px;
+            border-radius: 100vmax;
         }
     }
 }

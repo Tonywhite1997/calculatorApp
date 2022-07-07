@@ -14,37 +14,40 @@ keys.forEach((key)=>{
         resultField.value = "";
         let{value} = this.dataset;
 
-        if(value === "()"){
-            clickCounter += 1
+        if(inputField.value.length === 0 && value==="^" ){
+            return
+        } 
 
-            if(clickCounter < 0){
-                clickCounter = 1;
-            }
-
-            if(clickCounter === 1){
-                value = "("
-            }
-            if(clickCounter === 2){
-                value = ")"
-                clickCounter = 0;
-            }
-            if(clickCounter > 2){
-                return;
-            }
+        if(inputField.value.length === 0 && value==="%" ){
+            return
         }
 
-        if(value === "^"){
-            value = "**";
-        };
-
-        if(inputField.value === "Error"){
-            inputField.value = ""
+        if(inputField.value.length === 0 && value==="*" ){
+            return
         }
+
+        if(inputField.value.length === 0 && value==="-" ){
+            return
+        }      
+
+        if(inputField.value.length === 0 && value==="+" ){
+            return
+        }      
+        if(inputField.value.length === 0 && value==="/" ){
+            return
+        }      
+
+        if(inputField.value.includes(".") && value === "."){
+            return
+        }
+        
+        for(i=0; i<inputField.value.length; i++){
+            if(inputField.value[i] === "^" && inputField.value[i+1] === "^"){
+                return
+            }
+        }
+        
         inputField.value += value;
-
-        if(value==="1"||value==="2"||value==="3"||value==="4"||value==="5"||value==="6"||value==="7"||value==="8"||value==="9"||value==="0"){
-            resultField.value = "";
-        }
 
     });
 });
@@ -85,16 +88,16 @@ euqaulBtn.addEventListener("click", ()=>{
     if(inputField.value === ""){
         return
     }
-
-    if(inputField.value[0] === "*"|| inputField.value[0] === "%" || inputField.value[0] === "/" || inputField.value[0] === "^"){
-        return inputField.value = "Error"
+    let parameters = [...inputField.value]
+    for(i=0; i<parameters.length; i++){
+        if(parameters[i] === "^"){
+            parameters.splice(i, 1, "**")
+        }
     }
 
-    if(inputField.value[0] === "(" && inputField.value[1] === ")"){
-        return inputField.value = "Error";
-    }
+    let formattedInput = parameters.join("")
 
-    resultField.value = eval(inputField.value).toLocaleString();
+    resultField.value = eval(formattedInput).toLocaleString();
     inputField.value = "";
 })
 

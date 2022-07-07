@@ -104,6 +104,9 @@
 .main__section .equals__to {
   background-color: #51ed51;
   color: #000000;
+  width: 120px;
+  height: 60px;
+  border-radius: 100vmax;
 }
 
 @media screen and (max-width: 700px) {

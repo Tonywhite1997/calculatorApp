@@ -90,6 +90,10 @@ euqaulBtn.addEventListener("click", ()=>{
         return inputField.value = "Error"
     }
 
+    if(inputField.value[0] === "(" && inputField.value[1] === ")"){
+        return inputField.value = "Error";
+    }
+
     resultField.value = eval(inputField.value).toLocaleString();
     inputField.value = "";
 })

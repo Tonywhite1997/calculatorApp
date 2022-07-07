@@ -12,10 +12,11 @@
 
     &__input{
         position: relative;
-        height: 40%;
+        height: 30%;
         border-bottom: 1px solid $primarybclr;
         @include flex(column);
-        gap: 1em;
+        justify-content: flex-start;
+        gap: .5em;
 
         &__result{
             height: 60px;
@@ -26,26 +27,35 @@
             border: none;
             font-size: 2rem;
             color: $primaryclr;
+
+            &:hover, :focus{
+                outline: none;
+                border: none;
+            }
         }
 
         &__parameters{
             @extend .main__input__result;
             color: white;
+
+            &:hover, :focus{
+                outline: none;
+                border: none;
+            }
         }
 
         i{
             position: absolute;
             right: 1em;
-            bottom: .5em;
+            bottom: .3em;
             color: $darkgreen;
             font-size: 1.7rem;
         }
     }
 
     &__section{
-        // border: 1px solid red;
         padding-top: 1em;
-        height: 60%;
+        height: 70%;
         display: grid;
         grid-template-columns: repeat(4, 60px);
         place-content: center;

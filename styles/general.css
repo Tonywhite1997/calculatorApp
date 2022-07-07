@@ -6,7 +6,7 @@
 
 .main__input {
   position: relative;
-  height: 40%;
+  height: 30%;
   border-bottom: 1px solid #242323;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -21,7 +21,10 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  gap: 1em;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  gap: .5em;
 }
 
 .main__input__result, .main__input__parameters {
@@ -35,21 +38,31 @@
   color: #51ed51;
 }
 
+.main__input__result:hover, .main__input__parameters:hover, .main__input__result :focus, .main__input__parameters :focus {
+  outline: none;
+  border: none;
+}
+
 .main__input__parameters {
   color: white;
+}
+
+.main__input__parameters:hover, .main__input__parameters :focus {
+  outline: none;
+  border: none;
 }
 
 .main__input i {
   position: absolute;
   right: 1em;
-  bottom: .5em;
+  bottom: .3em;
   color: #317831;
   font-size: 1.7rem;
 }
 
 .main__section {
   padding-top: 1em;
-  height: 60%;
+  height: 70%;
   display: -ms-grid;
   display: grid;
   -ms-grid-columns: (60px)[4];

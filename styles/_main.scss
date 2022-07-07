@@ -44,7 +44,7 @@
 
     &__section{
         // border: 1px solid red;
-        padding-top: 2em;
+        padding-top: 1em;
         height: 60%;
         display: grid;
         grid-template-columns: repeat(4, 60px);
@@ -58,6 +58,7 @@
             width: 60px;
             border-radius: 100%;
             font-size: 1.5rem;
+            cursor: pointer;
         }
 
         .pink{

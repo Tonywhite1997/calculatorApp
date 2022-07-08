@@ -11,39 +11,30 @@ const deleteBtn = document.querySelector(".fa-delete-left")
 let clickCounter = 0;
 keys.forEach((key)=>{
     key.addEventListener("click", function(){
-        resultField.value = "";
         let{value} = this.dataset;
 
-        if(inputField.value.length === 0 && value==="^" ){
-            return
-        } 
+        let operators = ["^", "%", "*", "-", "+", "/", "."]
 
-        if(inputField.value.length === 0 && value==="%" ){
-            return
+        if(!operators.includes(value)){
+            clickCounter = 0
         }
 
-        if(inputField.value.length === 0 && value==="*" ){
-            return
-        }
+        for(operand of operators){
 
-        if(inputField.value.length === 0 && value==="-" ){
-            return
-        }      
+            if(inputField.value.length === 0 && resultField.value.length !== 0 && value === operand){
+                inputField.value = resultField.value;
+            }
 
-        if(inputField.value.length === 0 && value==="+" ){
-            return
-        }      
-        if(inputField.value.length === 0 && value==="/" ){
-            return
-        }      
-
-        if(inputField.value.includes(".") && value === "."){
-            return
-        }
-        
-        for(i=0; i<inputField.value.length; i++){
-            if(inputField.value[i] === "^" && inputField.value[i+1] === "^"){
+            if(inputField.value.length === 0 && value === operand && resultField.value.length === 0){
                 return
+            }
+
+            if(value === operand){
+                clickCounter += 1
+
+                if(clickCounter >= 2){
+                    return
+                }
             }
         }
         
@@ -53,38 +44,48 @@ keys.forEach((key)=>{
 });
 
 function clearInputField(){
+    clickCounter = 0;
     inputField.value = "";
     resultField.value = "";
-    clickCounter = 0;
 }
 
 function deleteLastInput(){
+
+    let operators = ["^", "%", "*", "-", "+", "/", "."]
+
     if(inputField.value === ""){
         return;
     };
 
-    if(inputField.value === "Error"){
-        return inputField.value = "";
-    }
-
     let inputValue;
     let numberArray = [...inputField.value];
+
+    let lastElement = numberArray.slice(-1).join("")
+    let matched = operators.find((operand)=>{
+        return lastElement === operand
+    })
+
+    if(matched){
+        clickCounter = 0;
+    }
+
+    for(let operand of operators){
+        if(!matched && numberArray.slice(-2)[0] === operand){
+            clickCounter = 1
+        }
+    }
 
     if(numberArray.length ===  1){
         return inputField.value = "";
     }
     
     let afterDeleteOp = numberArray.slice(0, -1);
-    for(number of afterDeleteOp){
-        if(number === "(" || ")"){
-            clickCounter = 1
-        }
-        inputValue = afterDeleteOp.join("")
-    }
-    inputField.value = inputValue;
+    inputValue = afterDeleteOp.join("")
+    inputField.value = inputValue;    
 }
 
 euqaulBtn.addEventListener("click", ()=>{
+    clickCounter = 0;
     if(inputField.value === ""){
         return
     }

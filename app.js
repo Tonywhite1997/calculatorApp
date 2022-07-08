@@ -22,7 +22,7 @@ keys.forEach((key)=>{
         for(operand of operators){
 
             if(inputField.value.length === 0 && resultField.value.length !== 0 && value === operand){
-                inputField.value = resultField.value;
+                inputField.value = resultField.value.replace(/,/g, "");
             }
 
             if(inputField.value.length === 0 && value === operand && resultField.value.length === 0){
@@ -85,6 +85,7 @@ function deleteLastInput(){
 }
 
 euqaulBtn.addEventListener("click", ()=>{
+    console.log(inputField.value);
     clickCounter = 0;
     if(inputField.value === ""){
         return

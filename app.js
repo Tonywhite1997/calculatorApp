@@ -9,11 +9,41 @@ const clearBtn = document.querySelector(".clear")
 const deleteBtn = document.querySelector(".fa-delete-left")
 
 let clickCounter = 0;
+let dotClickCounter = 0;
 keys.forEach((key)=>{
     key.addEventListener("click", function(){
         let{value} = this.dataset;
 
-        let operators = ["^", "%", "*", "-", "+", "/", "."]
+        if(resultField.value.includes("NaN") || resultField.value.includes("∞") || resultField.value.includes("Syntax Error")){
+            return clearInputField()
+        }
+
+        let operators = ["^", "%", "*", "-", "+", "/", "."];
+        let dotOperators = ["^", "%", "*", "-", "+", "/"];
+
+        if(value === "." && inputField.value.length === 0){
+            return
+        }
+        if(value === "."){
+            dotClickCounter += 1;
+        }
+
+        let parameters = [...inputField.value]
+
+        if(dotOperators.includes(parameters.slice(-1).join()) && value === "."){
+            dotClickCounter = 0;
+        }
+
+        if(dotClickCounter >= 2 && value === "."){
+            return
+        }
+
+        for(let dotOperator of dotOperators){
+            if(value === dotOperator){
+                dotClickCounter = 0;
+            }
+        }
+
 
         if(!operators.includes(value)){
             clickCounter = 0
@@ -40,11 +70,15 @@ keys.forEach((key)=>{
         
         inputField.value += value;
 
+        // console.log("dotclick", dotClickCounter);
+        // console.log("normal", clickCounter);
+
     });
 });
 
 function clearInputField(){
     clickCounter = 0;
+    dotClickCounter = 0;
     inputField.value = "";
     resultField.value = "";
 }
@@ -61,6 +95,9 @@ function deleteLastInput(){
     let numberArray = [...inputField.value];
 
     let lastElement = numberArray.slice(-1).join("")
+    if(lastElement === "."){
+        dotClickCounter = 0;
+    }
     let matched = operators.find((operand)=>{
         return lastElement === operand
     })
@@ -76,7 +113,7 @@ function deleteLastInput(){
     }
 
     if(numberArray.length ===  1){
-        return inputField.value = "";
+        clearInputField()
     }
     
     let afterDeleteOp = numberArray.slice(0, -1);
@@ -85,8 +122,8 @@ function deleteLastInput(){
 }
 
 euqaulBtn.addEventListener("click", ()=>{
-    console.log(inputField.value);
     clickCounter = 0;
+    dotClickCounter = 0;
     if(inputField.value === ""){
         return
     }
@@ -98,9 +135,19 @@ euqaulBtn.addEventListener("click", ()=>{
     }
 
     let formattedInput = parameters.join("")
-
-    resultField.value = eval(formattedInput).toLocaleString();
-    inputField.value = "";
+    try{
+        let evaluatedResult = eval(formattedInput).toLocaleString();
+        resultField.value = evaluatedResult
+    
+        inputField.value = "";
+    }
+    catch(err){
+        if(err){
+            resultField.value = "Syntax Error"
+            clickCounter = 1
+            return
+        }
+    }
 })
 
 clearBtn.addEventListener("click", clearInputField)

@@ -67,17 +67,37 @@
             height: 60px;
             width: 60px;
             color: white;
+            border: none;
             border-radius: 100%;
             font-size: 1.5rem;
             cursor: pointer;
+            -webkit-touch-callout: none; 
+            -webkit-user-select: none; 
+            -khtml-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none;
+            user-select: none;
+            outline: none;
         }
 
         .pink{
             color: $clearclr;
+            -webkit-touch-callout: none; 
+            -webkit-user-select: none; 
+            -khtml-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .green{
             color: $primaryclr;
+            -webkit-touch-callout: none; 
+            -webkit-user-select: none; 
+            -khtml-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none;
+            user-select: none;
         }
 
         .equals__to{
@@ -86,6 +106,12 @@
             width: 120px;
             height: 60px;
             border-radius: 100vmax;
+            -webkit-touch-callout: none; 
+            -webkit-user-select: none; 
+            -khtml-user-select: none; 
+            -moz-user-select: none; 
+            -ms-user-select: none;
+            user-select: none;
         }
     }
 }

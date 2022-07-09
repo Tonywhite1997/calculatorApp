@@ -69,6 +69,7 @@ keys.forEach((key)=>{
         }
         
         inputField.value += value;
+        console.log(dotClickCounter);
 
     });
 });
@@ -82,7 +83,8 @@ function clearInputField(){
 
 function deleteLastInput(){
 
-    let operators = ["^", "%", "*", "-", "+", "/", "."]
+    let operators = ["^", "%", "*", "-", "+", "/", "."];
+    let dotOperators = ["^", "%", "*", "-", "+", "/"];
 
     if(inputField.value === ""){
         return;
@@ -95,6 +97,10 @@ function deleteLastInput(){
     if(lastElement === "."){
         dotClickCounter = 0;
     }
+    if(dotOperators.includes(lastElement)){
+        dotClickCounter = 1;
+    }
+    console.log(dotClickCounter);
     let matched = operators.find((operand)=>{
         return lastElement === operand
     })

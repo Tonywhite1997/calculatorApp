@@ -101,6 +101,10 @@
   outline: none;
 }
 
+.main__section__key:hover {
+  background-color: #3e3e3e;
+}
+
 .main__section .pink {
   color: #f55525;
   -webkit-touch-callout: none;

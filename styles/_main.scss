@@ -78,6 +78,10 @@
             -ms-user-select: none;
             user-select: none;
             outline: none;
+
+            &:hover{
+                background-color: rgb(62, 62, 62);
+            }
         }
 
         .pink{

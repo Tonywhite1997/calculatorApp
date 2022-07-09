@@ -70,9 +70,6 @@ keys.forEach((key)=>{
         
         inputField.value += value;
 
-        // console.log("dotclick", dotClickCounter);
-        // console.log("normal", clickCounter);
-
     });
 });
 
@@ -127,16 +124,11 @@ euqaulBtn.addEventListener("click", ()=>{
     if(inputField.value === ""){
         return
     }
-    let parameters = [...inputField.value]
-    for(i=0; i<parameters.length; i++){
-        if(parameters[i] === "^"){
-            parameters.splice(i, 1, "**")
-        }
-    }
 
-    let formattedInput = parameters.join("")
+    let parameters = inputField.value.replace(/\^/g, "**")
+
     try{
-        let evaluatedResult = eval(formattedInput).toLocaleString();
+        let evaluatedResult = eval(parameters).toLocaleString();
         resultField.value = evaluatedResult
     
         inputField.value = "";

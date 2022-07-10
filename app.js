@@ -55,7 +55,7 @@ keys.forEach((key)=>{
                 inputField.value = resultField.value.replace(/,/g, "");
             }
 
-            if(inputField.value.length === 0 && value === operand && resultField.value.length === 0){
+            if(inputField.value.length === 0 && value === operand && resultField.value.length === 0 && value !== "-"){
                 return
             }
 
@@ -69,7 +69,6 @@ keys.forEach((key)=>{
         }
         
         inputField.value += value;
-        console.log(dotClickCounter);
 
     });
 });
@@ -97,10 +96,10 @@ function deleteLastInput(){
     if(lastElement === "."){
         dotClickCounter = 0;
     }
-    if(dotOperators.includes(lastElement)){
+    if(dotOperators.includes(lastElement) && numberArray.slice(-2)[0]==="."){
         dotClickCounter = 1;
     }
-    console.log(dotClickCounter);
+ 
     let matched = operators.find((operand)=>{
         return lastElement === operand
     })
